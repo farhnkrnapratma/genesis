@@ -1,0 +1,21 @@
+[package]
+name = "genesis"
+version = "0.1.0-alpha.1"
+license = "GPL-3.0-or-later"
+edition = "2024"
+
+[dependencies]
+chrono = "0.4"
+clap = { version = "4", features = ["derive"] }
+sentry = "0.48.3"
+dotenvy = "0.15"
+
+[[test]]
+name = "integration_test"
+path = "test/test.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
